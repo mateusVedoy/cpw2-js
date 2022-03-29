@@ -71,8 +71,9 @@ function wide(strDate){
     // Nesse caso, o separador � a barra (/) da data.
 
     let dateArr = strDate.split("/");
-    let month = ['janeiro', 'fevereiro', 'mar�o', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
-    return `${dateArr[0]} de ${month[dateArr[1]]} de ${dateArr[2]}`;
+    if(dateArr[1] < 10){dateArr[1] = dateArr[1].replace("0","")}
+    let month = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+    return `${dateArr[0]} de ${month[dateArr[1] -1]} de ${dateArr[2]}`;
 }
 
 // Trecho utilizado pelos testes
