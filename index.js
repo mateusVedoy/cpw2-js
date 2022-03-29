@@ -5,64 +5,74 @@
  * @param {*} people : Um array contendo um conjunto de nomes
  * @returns Um array com os nomes invertidos
  */
-function invert(people){
-
-    // TODO
-    // 1) Peça ao usuário para digitar vários nomes. Exiba na tela
-    // todos os nomes digitados, porém de maneira invertida (do último para o primeiro).
-    // Uma dica, você pode utilizar a função prompt para permitir que o usuário digite os
-    // nomes dos usuários.
-
-    return [];
+ function invert(people){
+    // todos os nomes digitados, por�m de maneira invertida (do �ltimo para o primeiro).
+    // Uma dica, voc� pode utilizar a fun��o prompt para permitir que o usu�rio digite os
+    // nomes dos usu�rios.
+    let peopleArr = [];
+    people.forEach(person => {
+        peopleArr.push(person);
+    });
+    peopleArr.reverse();
+    return peopleArr;
 }
 
 /**
- * Essa função recebe um array de notas e retorna uma média
+ * Essa fun��o recebe um array de notas e retorna uma m�dia
  *
  * @param {*} grades : Um array de notas
- * @returns Uma média a partir do array de notas
+ * @returns Uma m�dia a partir do array de notas
  */
 function mean(grades){
 
     // TODO
-    // 2) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
-    // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
+    // 2) Fa�a um programa que leia o nome e as tr�s notas de uma disciplina de um aluno e ao final escreva
+    // o nome do aluno, sua m�dia e se ele foi aprovado, sabendo-se que a m�dia para aprova��o � igual
     // ou superior a 7.
-
-    return 0;
+    let avg = grades.reduce((total, value) => {
+        return total + value;
+    });
+    return avg /= grades.length;
 }
 
 /**
- * Função recebe uma média e informa textualmente se um estudante está aprovado ou não
+ * Fun��o recebe uma m�dia e informa textualmente se um estudante est� aprovado ou n�o
  *
- * @param {*} mean : Um número que representa uma média
- * @returns Uma string dizendo se um estudante está aprovado ou não
+ * @param {*} mean : Um n�mero que representa uma m�dia
+ * @returns Uma string dizendo se um estudante est� aprovado ou n�o
  */
 function isApproved(mean){
 
     // TODO
-    // 2.1) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
-    // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
+    // 2.1) Fa�a um programa que leia o nome e as tr�s notas de uma disciplina de um aluno e ao final escreva
+    // o nome do aluno, sua m�dia e se ele foi aprovado, sabendo-se que a m�dia para aprova��o � igual
     // ou superior a 7.
 
-    return "";
+    if(mean >= 7){
+        return "aprovado";
+    }else{
+        return "reprovado";
+    }
 }
 
+//CONTINUAR DAQUI
 /**
  * Recebe uma data no formato de string e transforma em um formato textual
  *
  * @param {*} strDate : Uma string no formato de data
- * @returns Uma descrição da data informada
+ * @returns Uma descri��o da data informada
  */
 function wide(strDate){
 
     // TODO
-    // 3) Faça um script que receba uma data no formato “dd/mm/aaaa” e escreva a data por extenso,
-    // por exemplo, de "03/03/2022" para "03 de março de 2022". Dica: use a função
-    // “split” de uma string que quebra a string em pedaços dado um separador como argumento da função.
-    // Nesse caso, o separador é a barra (/) da data.
+    // 3) Fa�a um script que receba uma data no formato �dd/mm/aaaa� e escreva a data por extenso,
+    // por exemplo, de "03/03/2022" para "03 de mar�o de 2022". Dica: use a fun��o
+    // �split� de uma string que quebra a string em peda�os dado um separador como argumento da fun��o.
+    // Nesse caso, o separador � a barra (/) da data.
 
-    return "";
+    let dateArr = strDate.split("/");
+    let month = ['janeiro', 'fevereiro', 'mar�o', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+    return `${dateArr[0]} de ${month[dateArr[1]]} de ${dateArr[2]}`;
 }
 
 // Trecho utilizado pelos testes
