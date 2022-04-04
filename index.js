@@ -69,11 +69,20 @@ function wide(strDate){
     // por exemplo, de "03/03/2022" para "03 de mar�o de 2022". Dica: use a fun��o
     // �split� de uma string que quebra a string em peda�os dado um separador como argumento da fun��o.
     // Nesse caso, o separador � a barra (/) da data.
-
-    let dateArr = strDate.split("/");
-    if(dateArr[1] < 10){dateArr[1] = dateArr[1].replace("0","")}
-    let month = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
-    return `${dateArr[0]} de ${month[dateArr[1] -1]} de ${dateArr[2]}`;
+    let returnDate;
+    if(strDate == ""){
+        returnDate = "";
+    }else{
+        if(/\d{2}\/\d{2}\/\d{4}/.test(strDate) || /\d{2}\/\d{2}\/\d{2}/.test(strDate)){
+            let dateArr = strDate.split("/");
+            if(dateArr[1] < 10){dateArr[1] = dateArr[1].replace("0","")}
+            let month = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+            returnDate = `${dateArr[0]} de ${month[dateArr[1] -1]} de ${dateArr[2]}`;
+        }else{
+            returnDate = "";
+        }
+    }
+    return returnDate;
 }
 
 // Trecho utilizado pelos testes
